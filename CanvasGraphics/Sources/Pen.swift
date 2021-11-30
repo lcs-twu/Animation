@@ -89,11 +89,11 @@ public class Pen: Tortoise {
     
     /// Draws a line in the direction of the current heading of the pen.
     ///  - parameter distance: The length of the line to be drawn.
-    public func addLine(distance: Double) {
-        
-        addLine(distance: distance)
-        
-    }
+//    public func addLine(distance: Double) {
+//        
+//        addLine(distance: distance)
+//        
+//    }
 
     /// Moves the pen, without drawing a line, in the direction of the current heading.
     ///  - parameter distance: The length of the line to be drawn.
