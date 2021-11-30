@@ -16,6 +16,7 @@ let preferredHeight = 600
 import Cocoa
 import PlaygroundSupport
 import CanvasGraphics
+import Darwin
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -45,7 +46,7 @@ canvas.translate(to: Point(x: canvas.width / 2,
                            y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+canvas.drawAxes(withScale: true, by: 40, color: .black)
 
 /*:
  ## Add your code
@@ -58,21 +59,165 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 // Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+// frame of the triangle
+p.penColor = .black
+p.setPenSize(to: 2)
+p.goto(dx: -160, dy: 200)
+p.turn(degrees: 15)
+for i in 1 ... 2 {
+    p.addLine(distance: 310)
+    p.turn(degrees: -90)
+    p.addLine(distance: 190)
+    p.turn(degrees: -90)
+}
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+print(p.currentPosition())
+for i in 1 ... 5 {
+    p.turn(degrees: -90)
+    p.goto(dx: 30, dy: 8)
+    p.addLine(distance: 188)
+    p.turn(degrees: 180)
+    p.goto(dx: 30, dy: 8)
+    p.addLine(distance: 188)
+    p.turn(degrees: -90)
+}
 
-// Go back to origin
 p.goToOrigin()
+p.goto(dx: -150, dy: 168)
+for i in 1 ... 4 {
+    p.addLine(distance: 308)
+    p.goto(dx: 8, dy: -30)
+    p.turn(degrees: 180)
+    p.addLine(distance: 308)
+    p.turn(degrees: -180)
+}
 
-// Change the pen color
-p.penColor = .red
+// place will have to be black
+p.goToOrigin()
+p.goto(dx: 90, dy: 104)
+p.turn(degrees: -133)
+p.addLine(distance: 44)
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+p.goToOrigin()
+p.goto(dx: 125, dy: 208)
+p.turn(degrees: -2)
+p.addLine(distance: 130)
 
+
+
+p.turn(degrees: 30)
+
+
+
+// cubes dark side
+// p.goToOrigin()
+// p.goto(dx: 119, dy: 240)
+// p.beginfill()
+// p.turn(degrees: 90)
+// p.drawTo(dx: 0, dy: -30)
+// p.drawTo(dx: -150, dy: -40)
+// p.drawTo(dx: 0, dy: 30)
+// p.drawTo(dx: 150, dy: 40)
+// p.endfill()
+
+p.goToOrigin()
+p.goto(dx: -75, dy: 124)
+p.beginFill()
+p.turn(degrees: 90)
+p.drawTo(dx: 0, dy: -32)
+p.drawTo(dx: 8, dy: 2)
+p.drawTo(dx: 8, dy: -31)
+p.drawTo(dx: 120, dy: 33)
+p.drawTo(dx: 65, dy: 113)
+p.drawTo(dx: 1, dy: 32)
+p.drawTo(dx: -15, dy: 3)
+p.drawTo(dx: -45, dy: -30)
+p.drawTo(dx: -20, dy: 10)
+p.drawTo(dx: -60, dy: -50)
+p.drawTo(dx: -20, dy: 40)
+p.drawTo(dx: -40, dy: -50)
+p.endFill()
+
+// white cube
+p.goToOrigin()
+p.penColor = .white
+p.setPenSize(to: 7)
+p.goto(dx: -20, dy: 150)
+p.turn(degrees: -120)
+p.addLine(distance: 30)
+p.turn(degrees: 90)
+p.addLine(distance: 30)
+p.turn(degrees: 90)
+p.addLine(distance: 30)
+p.turn(degrees: 90)
+p.addLine(distance: 30)
+p.turn(degrees: 180)
+p.addLine(distance: 5)
+p.turn(degrees: -90)
+p.addLine(distance: 30)
+p.turn(degrees: 90)
+p.addLine(distance: 5)
+p.turn(degrees: 90)
+p.addLine(distance: 30)
+p.turn(degrees: -90)
+p.addLine(distance: 5)
+p.turn(degrees: -90)
+p.addLine(distance: 30)
+p.turn(degrees: 270)
+p.addLine(distance: -10)
+p.turn(degrees: -90)
+p.addLine(distance: 30)
+p.turn(degrees: 90)
+p.addLine(distance: 5)
+p.turn(degrees: 90)
+p.addLine(distance: 30)
+
+p.goToOrigin()
+p.goto(dx: -20, dy: 150)
+p.turn(degrees: 135)
+p.addLine(distance: 30)
+p.turn(degrees: -45)
+p.addLine(distance: 30)
+p.turn(degrees: -135)
+p.addLine(distance: 30)
+p.turn(degrees: -45)
+p.addLine(distance: 8)
+p.turn(degrees: -135)
+p.addLine(distance: 30)
+p.turn(degrees: 135)
+p.addLine(distance: 8)
+p.turn(degrees: 45)
+p.addLine(distance: 30)
+p.turn(degrees: -45)
+p.addLine(distance: 8)
+p.turn(degrees: -135)
+p.addLine(distance: 30)
+
+p.goToOrigin()
+p.goto(dx: 35, dy: 143)
+p.turn(degrees: -135)
+p.addLine(distance: 30)
+p.turn(degrees: -45)
+p.addLine(distance: 30)
+p.turn(degrees: 180)
+p.addLine(distance: 8)
+p.turn(degrees: 45)
+p.addLine(distance: 30)
+p.turn(degrees: -45)
+p.addLine(distance: 8)
+p.turn(degrees: -135)
+p.addLine(distance: 30)
+p.turn(degrees: 135)
+p.addLine(distance: 8)
+p.turn(degrees: 45)
+p.addLine(distance: 30)
+
+
+
+// points for the black
+// p.goToOrigin()
+// var black: [Point] = []
+// black.append(Point(x: , y: ))
 /*:
  ## Show the Live View
  Don't see any results?
