@@ -56,37 +56,57 @@ canvas.drawAxes(withScale: true, by: 50, color: .black)
 
  */
 
-// Begin writing your code below (you can remove the examples shown)
 
-for xPosition2 in stride(from: 0, through: 400, by: 45){
-    for yPosition2 in stride(from: 200, through: 600, by: 45){
-// draw rectangles
-canvas.highPerformance = true
-        var rectangleVertices: [Point] = [] // empty point of lists
-        rectangleVertices.append(Point(x: 355 - xPosition2, y: 760 - yPosition2))
-        rectangleVertices.append(Point(x: 400 - xPosition2, y: 760 - yPosition2))
-        rectangleVertices.append(Point(x: 400 - xPosition2, y: 805 - yPosition2))
-        rectangleVertices.append(Point(x: 355 - xPosition2, y: 805 - yPosition2))
-// 2. tell the canvas object to draw the rectrangle
-//        if xPosition2/yPosition2 == 200{
-//            canvas.fillColor = .green
-//        }
+
+// Begin writing your code below (you can remove the examples shown)
+let currentColor = Color(
+    hue: 25,
+    saturation: 6,
+    brightness: 84,
+    alpha: 100)
+canvas.fillColor = currentColor
+
+var rectangleVertices: [Point] = [] // empty point of lists
+rectangleVertices.append(Point(x: 0, y: 200))
+rectangleVertices.append(Point(x: 400, y: 600))
+rectangleVertices.append(Point(x: 0, y: 600))
 canvas.drawCustomShape(with: rectangleVertices)
-        canvas.highPerformance = false
-    }
-}
+
+
+let currentColor2 = Color(
+    hue: 47,
+    saturation: 96,
+    brightness: 100,
+    alpha: 100)
+canvas.fillColor = currentColor2
+var rectangleVertices2: [Point] = [] // empty point of lists
+rectangleVertices2.append(Point(x: 0, y: 200))
+rectangleVertices2.append(Point(x: 400, y: 200))
+rectangleVertices2.append(Point(x: 400, y: 600))
+canvas.drawCustomShape(with: rectangleVertices2)
+
+
 
 for xPosition in stride(from: 0, through: 400, by: 45){
     for yPosition in stride(from: 200, through: 600, by: 45){
         canvas.highPerformance = true
                 // draw triangles
-                canvas.fillColor = .orange
+            let currentColor = Color(
+                hue: 10,
+                saturation: 94,
+                brightness: 93,
+                alpha: 100)
+                canvas.fillColor = currentColor
+        
                 var triVertices: [Point] = [] // empty point of lists
                 triVertices.append(Point(x: xPosition, y: yPosition))
                 triVertices.append(Point(x: xPosition + 45, y: yPosition + 45))
                 triVertices.append(Point(x: xPosition, y: yPosition + 45))
                 // 2. tell the canvas object to draw the triangle
                 canvas.drawCustomShape(with: triVertices)
+        
+        canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 200)
+        canvas.fillColor = currentColor
 
 
 
@@ -99,7 +119,19 @@ for xPosition in stride(from: 0, through: 400, by: 45){
                 canvas.highPerformance = false
     }
 }
-
+let currentColor3 = Color(
+    hue: 25,
+    saturation: 6,
+    brightness: 84,
+    alpha: 100)
+canvas.textColor = currentColor3
+canvas.drawText(message: "talking heads", at: Point(x: 15, y: 150), size: 35, kerning: 0)
+canvas.drawText(message: "friday,saturday,sunday", at: Point(x: 15, y: 45), size: 8, kerning: 0)
+canvas.drawText(message: "september 12,13,14 1975", at: Point(x: 15, y: 30), size: 8, kerning: 0)
+canvas.drawText(message: "at cbgb and omfug", at: Point(x: 150, y: 45), size: 8, kerning: 0)
+canvas.drawText(message: "315 bowey, new york city", at: Point(x: 150, y: 30), size: 8, kerning: 0)
+canvas.drawText(message: "also appearing", at: Point(x: 280, y: 45), size: 8, kerning: 0)
+canvas.drawText(message: "from brooklyn, the shirts", at: Point(x: 280, y: 30), size: 8, kerning: 0)
 
 /*:
  ## Show the Live View

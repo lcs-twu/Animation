@@ -102,7 +102,7 @@ canvas.drawEllipse(at: Point(x: 0, y: -25), width: 55, height: 30)
 canvas.defaultLineWidth = 2
 canvas.drawCurve(from: Point(x: -5, y: -42), to: Point(x: -45, y: -60), control1: Point(x: -10, y: -60), control2: Point(x: -33, y: -60))
 canvas.drawCurve(from: Point(x: 5, y: -42), to: Point(x: 45, y: -60), control1: Point(x: 10, y: -60), control2: Point(x: 33, y: -60))
-}
+
 canvas.highPerformance = false
 // value
 for value in stride(from: 10,
