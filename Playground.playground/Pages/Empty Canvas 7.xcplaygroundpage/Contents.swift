@@ -55,25 +55,48 @@ canvas.drawAxes(withScale: true, by: 50, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
-// draw triangles
-var triangleVertices: [Point] = [] // empty point of lists
-triangleVertices.append(Point(x: 0, y: 200))
-triangleVertices.append(Point(x: 41, y: 200))
-triangleVertices.append(Point(x: 41, y: 241))
-// 2. tell the canvas object to draw the trangle
-canvas.drawCustomShape(with: triangleVertices)
+
 // Begin writing your code below (you can remove the examples shown)
 
-for xPosition in stride(from: 0, through: 400, by: 50){
-    for yPosition in stride(from: 0, through: 400, by: 50){
-        // draw triangles
-        
-        // DEBUG: Show where each circle is
-        canvas.textColor = .red
-        canvas.drawText(message: "(\(xPosition), \(yPosition))",
-                        at: Point(x: xPosition - 20, y: yPosition - 5),
-                        size: 8,
-                        kerning: 0)
+for xPosition2 in stride(from: 0, through: 400, by: 45){
+    for yPosition2 in stride(from: 200, through: 600, by: 45){
+// draw rectangles
+canvas.highPerformance = true
+        var rectangleVertices: [Point] = [] // empty point of lists
+        rectangleVertices.append(Point(x: 355 - xPosition2, y: 760 - yPosition2))
+        rectangleVertices.append(Point(x: 400 - xPosition2, y: 760 - yPosition2))
+        rectangleVertices.append(Point(x: 400 - xPosition2, y: 805 - yPosition2))
+        rectangleVertices.append(Point(x: 355 - xPosition2, y: 805 - yPosition2))
+// 2. tell the canvas object to draw the rectrangle
+//        if xPosition2/yPosition2 == 200{
+//            canvas.fillColor = .green
+//        }
+canvas.drawCustomShape(with: rectangleVertices)
+        canvas.highPerformance = false
+    }
+}
+
+for xPosition in stride(from: 0, through: 400, by: 45){
+    for yPosition in stride(from: 200, through: 600, by: 45){
+        canvas.highPerformance = true
+                // draw triangles
+                canvas.fillColor = .orange
+                var triVertices: [Point] = [] // empty point of lists
+                triVertices.append(Point(x: xPosition, y: yPosition))
+                triVertices.append(Point(x: xPosition + 45, y: yPosition + 45))
+                triVertices.append(Point(x: xPosition, y: yPosition + 45))
+                // 2. tell the canvas object to draw the triangle
+                canvas.drawCustomShape(with: triVertices)
+
+
+
+                // DEBUG: Show where each circle is
+                canvas.textColor = .red
+                canvas.drawText(message: "(\(xPosition), \(yPosition))",
+                                at: Point(x: xPosition, y: yPosition),
+                                size: 8,
+                                kerning: 0)
+                canvas.highPerformance = false
     }
 }
 
