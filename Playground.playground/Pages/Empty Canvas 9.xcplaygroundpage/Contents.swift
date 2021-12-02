@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -41,11 +41,10 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+//                           y: canvas.height / 2))
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+
 
 /*:
  ## Add your code
@@ -57,22 +56,59 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  */
 
 // Begin writing your code below (you can remove the examples shown)
+canvas.drawShapesWithFill = false
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+for xPosition in stride(from: 0, through: 196, by: 14){
+        canvas.highPerformance = true
+        
+        canvas.defaultBorderWidth = 14
+        canvas.drawShapesWithBorders = true
+    
+    canvas.drawRectangle(at: Point(x: -6, y: -6), width: xPosition, height: xPosition)
+        
+    if xPosition/14 % 2 == 0 {
+        canvas.borderColor = .red
+    }else if xPosition/14 - 2 == 1{
+        canvas.borderColor = .blue
+    }else if xPosition/14 - 2 == 5{
+        canvas.borderColor = .blue
+    }else if xPosition/14 - 2 == 9{
+        canvas.borderColor = .blue
+    }else{
+        canvas.borderColor = .yellow
+    }
+        canvas.textColor = .white
+                canvas.drawText(message: "(\(xPosition), \(xPosition))",
+                                at: Point(x: xPosition, y: xPosition),
+                                size: 8,
+                                kerning: 0)
+        canvas.highPerformance = false
+}
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+for xPosition2 in stride(from: 0, through: 196, by: 14){
+        canvas.highPerformance = true
+        
+        canvas.defaultBorderWidth = 14
+        canvas.drawShapesWithBorders = true
+    
+    canvas.drawRectangle(at: Point(x: 396, y: -6), width: xPosition2, height: xPosition2)
+        
+    if xPosition2/14 % 2 == 0 {
+        canvas.borderColor = .red
+    }else if xPosition2/14 - 2 == 1{
+        canvas.borderColor = .blue
+    }else if xPosition2/14 - 2 == 5{
+        canvas.borderColor = .blue
+    }else if xPosition2/14 - 2 == 9{
+        canvas.borderColor = .blue
+    }else{
+        canvas.borderColor = .yellow
+    }
+        canvas.highPerformance = false
+}
 
-// Go back to origin
-p.goToOrigin()
-
-// Change the pen color
-p.penColor = .red
-
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
-
+// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 /*:
  ## Show the Live View
  Don't see any results?
