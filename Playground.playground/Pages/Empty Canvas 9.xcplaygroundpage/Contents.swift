@@ -58,54 +58,158 @@ PlaygroundPage.current.liveView = canvas
 // Begin writing your code below (you can remove the examples shown)
 canvas.drawShapesWithFill = false
 
-for xPosition in stride(from: 0, through: 196, by: 14){
+for xPosition in stride(from: 0, through: 196*2, by: 28){
         canvas.highPerformance = true
         
-        canvas.defaultBorderWidth = 14
         canvas.drawShapesWithBorders = true
+    //colour
+    let currentColor1 = Color(
+        hue: 339,
+        saturation: 100,
+        brightness: 94,
+        alpha: 100)
     
-    canvas.drawRectangle(at: Point(x: -6, y: -6), width: xPosition, height: xPosition)
+    let currentColor2 = Color(
+        hue: 79,
+        saturation: 10,
+        brightness: 84,
+        alpha: 100)
+    
+    canvas.drawRectangle(at: Point(x: -6, y: -6), width: xPosition, height: xPosition, anchoredBy: .centre, borderWidth: 14)
         
-    if xPosition/14 % 2 == 0 {
-        canvas.borderColor = .red
-    }else if xPosition/14 - 2 == 1{
-        canvas.borderColor = .blue
-    }else if xPosition/14 - 2 == 5{
-        canvas.borderColor = .blue
-    }else if xPosition/14 - 2 == 9{
-        canvas.borderColor = .blue
+    if xPosition/28 % 2 == 0 {
+        canvas.borderColor = currentColor1
+    }else if xPosition/28 - 2 == 1{
+        canvas.borderColor = currentColor2
+    }else if xPosition/28 - 2 == 5{
+        canvas.borderColor = currentColor2
+    }else if xPosition/28 - 2 == 9{
+        canvas.borderColor = currentColor2
     }else{
-        canvas.borderColor = .yellow
+        canvas.borderColor = .black
     }
-        canvas.textColor = .white
-                canvas.drawText(message: "(\(xPosition), \(xPosition))",
-                                at: Point(x: xPosition, y: xPosition),
-                                size: 8,
-                                kerning: 0)
+
+    
         canvas.highPerformance = false
 }
 
-for xPosition2 in stride(from: 0, through: 196, by: 14){
+for xPosition2 in stride(from: 0, through: 196*2, by: 28){
         canvas.highPerformance = true
-        
-        canvas.defaultBorderWidth = 14
+
         canvas.drawShapesWithBorders = true
+    //colour
+    let currentColor1 = Color(
+        hue: 339,
+        saturation: 100,
+        brightness: 94,
+        alpha: 100)
     
-    canvas.drawRectangle(at: Point(x: 396, y: -6), width: xPosition2, height: xPosition2)
-        
-    if xPosition2/14 % 2 == 0 {
-        canvas.borderColor = .red
-    }else if xPosition2/14 - 2 == 1{
-        canvas.borderColor = .blue
-    }else if xPosition2/14 - 2 == 5{
-        canvas.borderColor = .blue
-    }else if xPosition2/14 - 2 == 9{
-        canvas.borderColor = .blue
+    let currentColor2 = Color(
+        hue: 79,
+        saturation: 10,
+        brightness: 84,
+        alpha: 100)
+
+    canvas.drawRectangle(at: Point(x: 406, y: -6), width: -xPosition2, height: -xPosition2, anchoredBy: .centre, borderWidth: 14)
+    
+    if xPosition2/28 % 2 == 0 {
+        canvas.borderColor = currentColor1
+    }else if xPosition2/28 - 2 == 1{
+        canvas.borderColor = currentColor2
+    }else if xPosition2/28 - 2 == 5{
+        canvas.borderColor = currentColor2
+    }else if xPosition2/28 - 2 == 9{
+        canvas.borderColor = currentColor2
     }else{
-        canvas.borderColor = .yellow
+        canvas.borderColor = .black
     }
+    
         canvas.highPerformance = false
 }
+
+for xPosition3 in stride(from: 0, through: 196*2, by: 28){
+        canvas.highPerformance = true
+
+        canvas.drawShapesWithBorders = true
+    //colour
+    let currentColor1 = Color(
+        hue: 339,
+        saturation: 100,
+        brightness: 94,
+        alpha: 100)
+    
+    let currentColor2 = Color(
+        hue: 79,
+        saturation: 10,
+        brightness: 84,
+        alpha: 100)
+
+    canvas.drawRectangle(at: Point(x: -6, y: 406), width: xPosition3, height: -xPosition3, anchoredBy: .centre, borderWidth: 14)
+    
+    if xPosition3/28 % 2 == 0 {
+        canvas.borderColor = currentColor1
+    }else if xPosition3/28 - 2 == 1{
+        canvas.borderColor = currentColor2
+    }else if xPosition3/28 - 2 == 5{
+        canvas.borderColor = currentColor2
+    }else if xPosition3/28 - 2 == 9{
+        canvas.borderColor = currentColor2
+    }else{
+        canvas.borderColor = .black
+    }
+    
+        canvas.highPerformance = false
+}
+
+for xPosition4 in stride(from: 0, through: 196*2, by: 28){
+        canvas.highPerformance = true
+
+        canvas.drawShapesWithBorders = true
+    //colour
+    let currentColor1 = Color(
+        hue: 339,
+        saturation: 100,
+        brightness: 94,
+        alpha: 100)
+    
+    let currentColor2 = Color(
+        hue: 79,
+        saturation: 10,
+        brightness: 84,
+        alpha: 100)
+    
+
+    canvas.drawRectangle(at: Point(x: 406, y: 406), width: -xPosition4, height: -xPosition4, anchoredBy: .centre, borderWidth: 14)
+    
+    if xPosition4/28 % 2 == 0 {
+        canvas.borderColor = currentColor1
+    }else if xPosition4/28 - 2 == 1{
+        canvas.borderColor = currentColor2
+    }else if xPosition4/28 - 2 == 5{
+        canvas.borderColor = currentColor2
+    }else if xPosition4/28 - 2 == 9{
+        canvas.borderColor = currentColor2
+    }else{
+        canvas.borderColor = .black
+    }
+    
+        canvas.highPerformance = false
+}
+//background
+canvas.drawShapesWithBorders = false
+canvas.drawShapesWithFill = true
+let currentColor1 = Color(
+    hue: 339,
+    saturation: 100,
+    brightness: 94,
+    alpha: 100)
+canvas.fillColor = currentColor1
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
+canvas.defaultLineWidth = 10
+canvas.lineColor = currentColor1
+canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 400, y: 200))
+canvas.drawLine(from: Point(x: 200, y: 400), to: Point(x: 200, y: 0))
+
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 50, color: .black)
