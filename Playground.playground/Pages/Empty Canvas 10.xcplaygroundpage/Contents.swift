@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -41,11 +41,11 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+//                           y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+
 
 /*:
  ## Add your code
@@ -55,24 +55,33 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
-
+//background
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 // Begin writing your code below (you can remove the examples shown)
+for xValue in stride(from: 6, through: 406, by: 80){
+    for yValue in stride(from: 6, through: 400, by: 80){
+        canvas.highPerformance = true
+    canvas.defaultLineWidth = 10
+        if yValue-xValue == 0{
+            canvas.lineColor = .white
+        }else{
+            canvas.lineColor = .blue
+        }
+    canvas.drawLine(from: Point(x: xValue, y: yValue), to: Point(x: 54 + xValue, y: yValue))
+    canvas.drawLine(from: Point(x: xValue, y: yValue), to: Point(x: xValue, y: 54 + yValue))
+    canvas.drawLine(from: Point(x: 5 + xValue, y: 5 + yValue), to: Point(x: 67 + xValue, y: 67 + yValue))
+        
+        canvas.textColor = .yellow
+                canvas.drawText(message: "(\(xValue), \(yValue))",
+                                at: Point(x: xValue-6, y: yValue-6),
+                                size: 8,
+                                kerning: 0)
+        canvas.highPerformance = false
+    }
+}
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
-
-// Go back to origin
-p.goToOrigin()
-
-// Change the pen color
-p.penColor = .red
-
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
-
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 /*:
  ## Show the Live View
  Don't see any results?
